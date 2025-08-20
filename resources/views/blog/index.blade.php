@@ -28,7 +28,7 @@
                         <tr class="hover:bg-gray-100 transition">
                             <td class="px-4 py-3">{{$i++}}</td>
                             <td class="px-4 py-3 font-semibold text-gray-900">{{$blog->title}}</td>
-                            <td class="px-4 py-3 text-gray-700">{{Str::limit($blog->description, 50)}}</td>
+                            <td class="px-4 py-3 text-gray-700">{{Str::limit($blog->description, 80)}}</td>
                             <td class="px-4 py-3 text-gray-600">{{$blog->created_at->format("d M, Y")}}</td>
                             <td class="px-4 py-3 flex justify-center space-x-2">
                                 <a href="{{route("blog.show", $blog)}}" class="px-3 py-1 bg-blue-500 text-white text-xs font-semibold rounded shadow-md hover:bg-blue-600 transition">
@@ -41,8 +41,7 @@
                                 <form method="post" action="{{route('blog.destroy', $blog)}}">
                                     @csrf
                                     @method('delete')
-                                    <button onclick="return confirm('Are you sure you want to delete this blog?')"
-                                            class="px-3 py-1 bg-red-500 text-white text-xs font-semibold rounded shadow-md hover:bg-red-600 transition">
+                                    <button onclick="return confirm('Are you sure you want to delete this blog?')" class="px-3 py-1 bg-red-500 text-white text-xs font-semibold rounded shadow-md hover:bg-red-600 transition">
                                         🗑 Delete
                                     </button>
                                 </form>
